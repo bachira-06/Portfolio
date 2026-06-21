@@ -1,0 +1,893 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ʙᴀᴄʜɪʀᴀ ×͜× </title>
+    <meta
+      name="description"
+      content="Portfolio of Bachira — developer, Grade 12 student from Nepal."
+    />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+        
+      :root {
+        --page-bg: #dcdce4;
+        --nav-bg: #beb4d9;
+        --title-bg: #8b6fb8;
+        --title-bg-2: #7c5fab;
+        --window-bg: #cfc3e8;
+        --window-bg-2: #c4b6e3;
+        --border: #6b4f96;
+        --shadow: #4f3a70;
+        --ink: #2a2632;
+        --muted: #5b5468;
+        --accent: #a8366b;
+        --accent-2: #7c5fab;
+        --green: #5fae72;
+        --pixel: "Press Start 2P", monospace;
+        --mono: "Space Mono", monospace;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: var(--page-bg);
+        color: var(--ink);
+        font-family: var(--mono);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      ::selection {
+        background: var(--border);
+        color: #fff;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+
+      a:focus-visible,
+      button:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+      }
+
+      .wrap {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* ---------- nav ---------- */
+      header {
+        background: var(--nav-bg);
+        border-bottom: 3px solid var(--ink);
+      }
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 24px;
+        max-width: 1180px;
+        margin: 0 auto;
+      }
+      .logo {
+        font-family: var(--pixel);
+        font-size: 18px;
+        letter-spacing: 1px;
+      }
+      .navlinks {
+        display: flex;
+        gap: 32px;
+        font-family: var(--mono);
+        font-weight: 700;
+        font-size: 14px;
+      }
+      .navlinks a {
+        position: relative;
+        padding: 4px 2px;
+        transition: color 0.15s;
+      }
+      .navlinks a:hover {
+        color: var(--accent);
+      }
+      .navtoggle {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--ink);
+        font-size: 24px;
+        cursor: pointer;
+      }
+
+      @media (max-width: 680px) {
+        .navlinks {
+          position: fixed;
+          inset: 64px 0 0 0;
+          background: var(--nav-bg);
+          flex-direction: column;
+          padding: 32px 24px;
+          gap: 22px;
+          transform: translateX(100%);
+          transition: transform 0.25s ease;
+          font-size: 16px;
+          border-top: 3px solid var(--ink);
+        }
+        .navlinks.open {
+          transform: translateX(0);
+        }
+        .navtoggle {
+          display: block;
+        }
+      }
+
+      /* ---------- pixel window component ---------- */
+      .pwin {
+        background: var(--window-bg);
+        border: 3px solid var(--border);
+        box-shadow: 8px 8px 0 var(--shadow);
+        image-rendering: pixelated;
+      }
+      .pwin-bar {
+        background: var(--title-bg);
+        border-bottom: 3px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 12px;
+      }
+      .pwin-title {
+        font-family: var(--pixel);
+        font-size: 11px;
+        color: #fff;
+        letter-spacing: 0.5px;
+      }
+      .pwin-dots {
+        display: flex;
+        gap: 6px;
+      }
+      .pwin-dots span {
+        width: 11px;
+        height: 11px;
+        background: #e8e3f5;
+        border: 2px solid var(--border);
+      }
+      .pwin-body {
+        padding: 24px;
+      }
+
+
+      /* ---------- hero ---------- */
+      .hero {
+        padding: 70px 24px 50px;
+        max-width: 1180px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .hero .eyebrow {
+        font-family: var(--mono);
+        font-size: 13px;
+        color: var(--muted);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin-bottom: 22px;
+      }
+      .blink {
+        width: 8px;
+        height: 8px;
+        background: var(--green);
+        border: 2px solid var(--ink);
+        animation: blink 1.3s steps(2) infinite;
+      }
+      @keyframes blink {
+        50% {
+          opacity: 0.25;
+        }
+      }
+
+      .hero h1 {
+        font-family: var(--pixel);
+        font-size: clamp(28px, 6vw, 52px);
+        line-height: 1.5;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+        text-shadow: 4px 4px 0 var(--accent-2);
+      }
+      .hero .sub {
+        font-family: var(--pixel);
+        font-size: 13px;
+        color: var(--accent);
+        margin-bottom: 28px;
+      }
+      .hero p.tagline {
+        max-width: 560px;
+        margin: 0 auto 30px;
+        color: var(--muted);
+        font-size: 15px;
+      }
+
+      .heroLinks {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .iconlink {
+        width: 46px;
+        height: 46px;
+        border: 3px solid var(--border);
+        background: var(--window-bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--ink);
+        box-shadow: 4px 4px 0 var(--shadow);
+        transition:
+          transform 0.15s,
+          box-shadow 0.15s;
+      }
+      .iconlink:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 6px 6px 0 var(--shadow);
+        color: var(--accent);
+      }
+      .iconlink svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      /* ---------- section shared ---------- */
+      section {
+        padding: 60px 24px;
+      }
+      .sectiontitle {
+        font-family: var(--pixel);
+        font-size: 24px;
+        text-align: center;
+        margin-bottom: 14px;
+        text-shadow: 3px 3px 0 var(--accent-2);
+      }
+      .sectionsub {
+        text-align: center;
+        color: var(--muted);
+        font-size: 14px;
+        margin-bottom: 44px;
+        max-width: 520px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* ---------- bento grid (about dashboard) ---------- */
+      .bento {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        max-width: 1180px;
+        margin: 0 auto;
+      }
+      .bento .span2 {
+        grid-column: span 2;
+      }
+      .bento .span3 {
+        grid-column: span 3;
+      }
+      @media (max-width: 900px) {
+        .bento {
+          grid-template-columns: 1fr;
+        }
+        .bento .span2,
+        .bento .span3 {
+          grid-column: span 1;
+        }
+      }
+
+      .profileRow {
+        display: flex;
+        align-items: center;
+        gap: 26px;
+        flex-wrap: wrap;
+      }
+      .avatar-fallback {
+        width: 120px;
+        height: 120px;
+        flex-shrink: 0;
+        
+        border: 3px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 52px;
+      }
+      .profileinfo h3 {
+        font-family: var(--pixel);
+        font-size: 18px;
+        margin-bottom: 8px;
+      }
+      .profileinfo .meta {
+        font-size: 13px;
+        color: var(--muted);
+        margin-bottom: 14px;
+      }
+      .profileinfo .meta b {
+        color: var(--accent);
+      }
+      .goals {
+        display: flex;
+        gap: 28px;
+        flex-wrap: wrap;
+      }
+      .goals .g h4 {
+        font-family: var(--pixel);
+        font-size: 10px;
+        color: var(--accent);
+        margin-bottom: 8px;
+      }
+      .goals .g div {
+        font-size: 13px;
+        margin-bottom: 4px;
+      }
+
+      .statgrid {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        height: 100%;
+        justify-content: center;
+      }
+      .statline {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        border-bottom: 2px dashed var(--border);
+        padding-bottom: 8px;
+      }
+      .statline .n {
+        font-family: var(--pixel);
+        font-size: 20px;
+        color: var(--accent);
+      }
+      .statline .l {
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .aboutbody p {
+        margin-bottom: 14px;
+        font-size: 14.5px;
+      }
+      .aboutbody p:last-child {
+        margin-bottom: 0;
+      }
+      .aboutbody .accent {
+        color: var(--accent);
+        font-weight: 700;
+      }
+
+      /* ---------- repo cards ---------- */
+      .repogrid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+      @media (max-width: 780px) {
+        .repogrid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .repocard .pwin-body {
+        padding: 20px;
+      }
+      .repoTop {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+      .repoName {
+        font-family: var(--pixel);
+        font-size: 13px;
+      }
+      .repoIcon {
+        font-size: 18px;
+        flex-shrink: 0;
+      }
+      .repoDesc {
+        font-size: 13.5px;
+        color: var(--muted);
+        margin-bottom: 16px;
+        min-height: 38px;
+      }
+      .repoMeta {
+        display: flex;
+        gap: 16px;
+        font-size: 12px;
+        color: var(--muted);
+        margin-bottom: 14px;
+        flex-wrap: wrap;
+      }
+      .repoMeta span {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .langdot {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+      .repolink {
+        font-family: var(--pixel);
+        font-size: 10px;
+        color: var(--accent);
+        border: 2px solid var(--accent);
+        padding: 7px 12px;
+        display: inline-block;
+        transition: all 0.15s;
+      }
+      .repolink:hover {
+        background: var(--accent);
+        color: #fff;
+      }
+
+      .seemore {
+        text-align: center;
+        margin-top: 38px;
+      }
+      .seemore a {
+        font-family: var(--pixel);
+        font-size: 12px;
+        color: var(--ink);
+        background: var(--window-bg);
+        border: 3px solid var(--border);
+        padding: 14px 22px;
+        box-shadow: 5px 5px 0 var(--shadow);
+        display: inline-block;
+        transition:
+          transform 0.15s,
+          box-shadow 0.15s;
+      }
+      .seemore a:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 7px 7px 0 var(--shadow);
+        color: var(--accent);
+      }
+
+    
+
+      /* ---------- contact ---------- */
+      .contactWin {
+        max-width: 680px;
+        margin: 0 auto;
+      }
+      .contactWin .pwin-body {
+        text-align: center;
+        padding: 44px 32px;
+      }
+      .contactWin h2 {
+        font-family: var(--pixel);
+        font-size: 22px;
+        margin-bottom: 16px;
+      }
+      .contactWin p {
+        color: var(--muted);
+        font-size: 14.5px;
+        margin-bottom: 30px;
+        max-width: 440px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .contactLinks {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+      }
+
+      footer {
+        text-align: center;
+        padding: 30px 24px;
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 12px;
+        border-top: 3px solid var(--ink);
+        background: var(--nav-bg);
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(14px);
+        transition:
+          opacity 0.5s ease,
+          transform 0.5s ease;
+      }
+      .reveal.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">Bachira</div>
+        <button
+          class="navtoggle"
+          id="navToggle"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+        <div class="navlinks" id="navLinks">
+          <a href="#about" data-nav>About</a>
+          <a href="#projects" data-nav>Projects</a>
+          <a href="#contact" data-nav>Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Hello, I am<br />Bachira</h1>
+      <div class="sub">  ×͜× </div>
+      <p class="tagline">
+        Jack of all trades, master of none
+      </p>
+      <div class="heroLinks">
+        <a
+          class="iconlink"
+          href="https://github.com/bachira-06"
+          target="_blank"
+          rel="noopener"
+          aria-label="GitHub"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.75 2.69 1.25 3.34.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.58.23 2.75.11 3.04.74.81 1.18 1.84 1.18 3.1 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.07.78 2.16 0 1.56-.01 2.81-.01 3.19 0 .31.21.66.79.55A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"
+            />
+          </svg>
+        </a>
+        <a
+          class="iconlink"
+          href="https://www.youtube.com/@Iambachira"
+          target="_blank"
+          rel="noopener"
+          aria-label="YouTube"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M23.5 6.2s-.23-1.64-.94-2.36c-.9-.95-1.9-.95-2.36-1C17 2.5 12 2.5 12 2.5h-.01s-5 0-8.2.34c-.46.05-1.46.05-2.36 1-.71.72-.94 2.36-.94 2.36S0 8.13 0 10.07v1.86c0 1.94.23 3.87.23 3.87s.23 1.64.94 2.36c.9.95 2.08.92 2.6 1.02 1.9.18 8.06.34 8.23.34h.01s5.01 0 8.21-.34c.46-.05 1.46-.05 2.36-1 .71-.72.94-2.36.94-2.36s.23-1.93.23-3.87v-1.86c0-1.94-.23-3.87-.23-3.87ZM9.55 14.6V7.96l6.27 3.32-6.27 3.32Z"
+            />
+          </svg>
+        </a>
+        <a
+          class="iconlink"
+          href="https://discord.gg/Rh8WQNBhpb"
+          target="_blank"
+          rel="noopener"
+          aria-label="Discord"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M20.32 4.5A19.8 19.8 0 0 0 15.6 3c-.2.36-.43.85-.59 1.23a18.3 18.3 0 0 0-5.99 0A12 12 0 0 0 8.4 3a19.7 19.7 0 0 0-4.72 1.5C1.2 8.6.5 12.6.8 16.55a19.9 19.9 0 0 0 5.06 2.57c.4-.55.77-1.13 1.08-1.75a12.9 12.9 0 0 1-1.7-.81c.14-.1.28-.21.41-.32a14.2 14.2 0 0 0 12.7 0c.14.11.27.22.41.32-.54.31-1.11.58-1.7.81.31.62.67 1.2 1.08 1.75a19.9 19.9 0 0 0 5.06-2.57c.36-4.58-.74-8.54-3.08-12.05ZM8.68 14.1c-.86 0-1.56-.79-1.56-1.76 0-.97.69-1.76 1.56-1.76.88 0 1.58.8 1.56 1.76 0 .97-.69 1.76-1.56 1.76Zm6.64 0c-.86 0-1.56-.79-1.56-1.76 0-.97.69-1.76 1.56-1.76.88 0 1.57.8 1.56 1.76 0 .97-.68 1.76-1.56 1.76Z"
+            />
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <section id="about" class="reveal">
+      <div class="wrap">
+        <h2 class="sectiontitle">About Me</h2>
+        <p class="sectionsub">I will let my passion burn me alive ❤️‍🔥</p>
+
+        <div class="bento">
+          <div class="pwin span3">
+            <div class="pwin-bar">
+              <span class="pwin-title">Profile</span>
+              <div class="pwin-dots">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="pwin-body profileRow">
+              <div class="avatar-fallback"><img src="C:\Users\acer\Desktop\PORTFOLIO\BACHIRA.png" alt="Bachira" style="width:100%;height:100%;object-fit:cover;"></div>
+              <div class="profileinfo">
+                <h3>ʙᴀᴄʜɪʀᴀ ×͜×</h3>
+                <div class="meta">
+                  Grade 12 <b>·</b> Nepal <b>·</b> <b>Dev</b> <b>·</b> 10+
+                  months coding
+                </div>
+                <div class="goals">
+                  <div class="g">
+                    <h4>GOALS</h4>
+                    <div>✦ Master something</div>
+                    <div>✦ Ship more projects</div>
+                  </div>
+                  <div class="g">
+                    <h4>WHY</h4>
+                    <div>✦ Take care of family</div>
+                    <div>✦ Never check the price tag</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pwin span2">
+            <div class="pwin-bar">
+              <span class="pwin-title">About</span>
+              <div class="pwin-dots">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="pwin-body aboutbody">
+              <p>
+                Hi, I'm <span class="accent">Bachira</span> — cute, handsome,
+                and a certified jack of all trades, master of none 🙂
+              </p>
+              <p>
+                I've been coding for
+                <span class="accent">10+ months</span> while finishing Grade 12
+                in Nepal, building whatever I'm curious about on the side.
+              </p>
+              <p>
+                The long-term plan isn't a job title — it's being able to give
+                my future family whatever they need without ever looking at the
+                price first.
+              </p>
+            </div>
+          </div>
+
+          <div class="pwin">
+            <div class="pwin-bar">
+              <span class="pwin-title">Stats</span>
+              <div class="pwin-dots">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="pwin-body statgrid">
+              <div class="statline">
+                <span class="l">months coding</span><span class="n">10+</span>
+              </div>
+              <div class="statline">
+                <span class="l">grade</span><span class="n">12</span>
+              </div>
+              <div class="statline">
+                <span class="l">things to learn</span><span class="n">∞</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+       </div>
+        <p class="seemore">
+          <a
+            href=""
+            target="_blank"
+            rel="noopener"
+            > DASHBOARD </a
+          >
+        </p>
+      </div>
+    </section>
+
+    <section id="projects" class="reveal">
+      <div class="wrap">
+        <h2 class="sectiontitle">Projects</h2>
+        <p class="sectionsub">
+            A little collection of projects I have been building, designing and tinkering with ✨💫
+        </p>
+
+        <div class="repogrid">
+        <!-- fuckkkk repo 1-->
+          <div class="pwin repocard">
+            <div class="pwin-bar">
+              <span class="pwin-title">Repo01</span>
+              <div class="pwin-dots">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="pwin-body">
+              <div class="repoTop">
+                <div class="repoName">project-one</div>
+                <div class="repoIcon">📦</div>
+              </div>
+              <div class="repoDesc">
+                
+              </div>
+              <div class="repoDesc">
+                ❤️‍🔥 SMP_FINDER | Bot will make so much easier to find for smps and everythings.
+                ❕Developed by @_bachira1.
+              </div>
+              <div class="repoMeta">
+                <span
+                  ><span class="langdot" style="background: #3572a5"></span>python</span>
+                <span><span class="langdot" style="background: #841fb7"></span>Discord Bot</span>
+                <span>★ 1</span>
+              </div>
+              <a
+                class="repolink"
+                href="https://github.com/bachira-06/smp-finder"
+                target="_blank"
+                rel="noopener"
+                >VIEW REPO →</a
+              >
+            </div>
+          </div>
+         <!-- repo 2-->
+          <div class="pwin repocard">
+            <div class="pwin-bar">
+              <span class="pwin-title">Repo02</span>
+              <div class="pwin-dots">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="pwin-body">
+              <div class="repoTop">
+                <div class="repoName">project-two</div>
+                <div class="repoIcon">🛠️</div>
+              </div>
+              <div class="repoDesc">
+                ❤️‍🔥 SMP_LOOKER | Bot will make so much easier to find for smps and everythings.
+               ❕Developed by @_bachira1
+                 Same as smp finder but upgraded version.
+              </div>
+              <div class="repoMeta">
+                
+                <span></span>
+                  <span class="langdot" style="background: #3572a5"></span>python</span>
+                  <span><span class="langdot" style="background: #841fb7"></span>Discord Bot</span>
+                <span>★ 1</span>
+              </div>
+              <a
+                class="repolink"
+                href="https://github.com/bachira-06/smp-looker-2.0"
+                target="_blank"
+                rel="noopener"
+                >VIEW REPO →</a
+              >
+            </div>
+          </div>
+
+        
+</div> <!-- closes .repogrid -->
+            
+         </div>           
+         </div>  
+
+    <section id="contact" class="reveal">
+      <div class="wrap">
+        <div class="pwin contactWin">
+          <div class="pwin-bar">
+            <span class="pwin-title">Contact</span>
+            <div class="pwin-dots"><span></span><span></span><span></span></div>
+          </div>
+          <div class="pwin-body">
+            <h2>Let's talk </h2>
+            <p>
+              Got an idea, a project, or just want to say hi? My inbox doesn't
+              bite — reach out anytime.
+            </p>
+            <div class="contactLinks">
+              <a
+                class="iconlink"
+                href="https://github.com/bachira-06"
+                target="_blank"
+                rel="noopener"
+                aria-label="GitHub"
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.75 2.69 1.25 3.34.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.58.23 2.75.11 3.04.74.81 1.18 1.84 1.18 3.1 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.07.78 2.16 0 1.56-.01 2.81-.01 3.19 0 .31.21.66.79.55A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"
+                  />
+                </svg>
+              </a>
+              <a
+                class="iconlink"
+                href="https://www.youtube.com/@Iambachira"
+                target="_blank"
+                rel="noopener"
+                aria-label="YouTube"
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M23.5 6.2s-.23-1.64-.94-2.36c-.9-.95-1.9-.95-2.36-1C17 2.5 12 2.5 12 2.5h-.01s-5 0-8.2.34c-.46.05-1.46.05-2.36 1-.71.72-.94 2.36-.94 2.36S0 8.13 0 10.07v1.86c0 1.94.23 3.87.23 3.87s.23 1.64.94 2.36c.9.95 2.08.92 2.6 1.02 1.9.18 8.06.34 8.23.34h.01s5.01 0 8.21-.34c.46-.05 1.46-.05 2.36-1 .71-.72.94-2.36.94-2.36s.23-1.93.23-3.87v-1.86c0-1.94-.23-3.87-.23-3.87ZM9.55 14.6V7.96l6.27 3.32-6.27 3.32Z"
+                  />
+                </svg>
+              </a>
+              <a
+                class="iconlink"
+                href="https://discord.gg/Rh8WQNBhpb"
+                target="_blank"
+                rel="noopener"
+                aria-label="Discord"
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M20.32 4.5A19.8 19.8 0 0 0 15.6 3c-.2.36-.43.85-.59 1.23a18.3 18.3 0 0 0-5.99 0A12 12 0 0 0 8.4 3a19.7 19.7 0 0 0-4.72 1.5C1.2 8.6.5 12.6.8 16.55a19.9 19.9 0 0 0 5.06 2.57c.4-.55.77-1.13 1.08-1.75a12.9 12.9 0 0 1-1.7-.81c.14-.1.28-.21.41-.32a14.2 14.2 0 0 0 12.7 0c.14.11.27.22.41.32-.54.31-1.11.58-1.7.81.31.62.67 1.2 1.08 1.75a19.9 19.9 0 0 0 5.06-2.57c.36-4.58-.74-8.54-3.08-12.05ZM8.68 14.1c-.86 0-1.56-.79-1.56-1.76 0-.97.69-1.76 1.56-1.76.88 0 1.58.8 1.56 1.76 0 .97-.69 1.76-1.56 1.76Zm6.64 0c-.86 0-1.56-.79-1.56-1.76 0-.97.69-1.76 1.56-1.76.88 0 1.57.8 1.56 1.76 0 .97-.68 1.76-1.56 1.76Z"
+                  />
+                </svg>
+              </a>
+              <a
+                class="iconlink"
+                href=https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=GTvVlcRwRrlmvmWFQFctWFmhQFcPTrFRsVqKnmNnlwZTNjjsczhvnGRZFCGqhXMZqhcxznlkGrMQd
+                target="_blank"
+                rel="noopener"
+                aria-label="Mail"
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                   <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z" 
+                   />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div id="cursorDot"></div>
+
+
+    <footer>Coded my the man him self @_bachira1 🔰 </footer>
+
+    <script>
+      const navToggle = document.getElementById("navToggle");
+      const navLinks = document.getElementById("navLinks");
+      navToggle.addEventListener("click", () => {
+        const open = navLinks.classList.toggle("open");
+        navToggle.setAttribute("aria-expanded", open);
+        navToggle.textContent = open ? "✕" : "☰";
+      });
+      document.querySelectorAll("[data-nav]").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("open");
+          navToggle.setAttribute("aria-expanded", false);
+          navToggle.textContent = "☰";
+        });
+      });
+
+      const reveals = document.querySelectorAll(".reveal");
+      const obs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("show");
+              obs.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+      reveals.forEach((el) => obs.observe(el));
+    
+    </script>
+  </body>
+</html>
